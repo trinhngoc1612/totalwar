@@ -1,0 +1,92 @@
+@font-face {
+	font-family: RobotoLight;
+	src: url(fonts/roboto.light.ttf);
+	font-style: normal;
+}
+@font-face {
+	font-family: Roboto;
+	src: url(fonts/roboto.regular.ttf);
+	font-style: normal;
+}
+@font-face {
+	font-family: RobotoBold;
+	src: url(fonts/roboto.bold.ttf);
+	font-style: normal;
+}
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	color: #333;
+	line-height: 1.6;
+	font-family: "Roboto", sans-serif;
+	font-size: 14px;
+	font-weight: 300;
+}
+img{
+	width: 100%;
+}
+a, button{
+	transition: all 0.3s;
+}
+a:hover{
+	text-decoration: underline !important;
+	color: unset !important;
+}
+ul{
+	list-style-type: none;
+}
+video{
+	display: block;
+}
+/*topbar*/
+.topbar{
+	background-color: #282828;
+	/*height: 55px;*/
+}
+.topbar .container{
+	height: 55px;
+}
+.topbar *{
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.wrapper-logo h1{
+	font-size: 22px;
+	font-family: TimeNewRoman;
+	display: inline-block;
+	margin: 0;
+}
+.wrapper-logo, .wrapper-menu{
+	display: inline-block;
+	padding: 12px 0;
+}
+.wrapper-menu{
+	float: right;
+}
+.wrapper-menu li:not(.nav-item){
+	padding-left: 10px;
+}
+.wrapper-menu a.nav-link{
+	font-size: 13px;
+	padding: 0 0 0 5px;
+	line-height: 28px;
+}
+.wrapper-menu a.nav-link:hover{
+	color: #fff;
+}
+.wrapper-menu a.nav-link:not(.last-child):after{
+	content: "/";
+	padding-left: 5px;
+}
+button.btn-purchase{
+	color: #fff;
+	background-color: #97743A;
+	border: 1px solid #97743A;
+	padding: 2px 5px ;
+}
+.wrapper-menu li svg{
+	width: 26px !important;
+	height: 26px;
+}
