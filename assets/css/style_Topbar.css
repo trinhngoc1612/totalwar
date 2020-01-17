@@ -23,6 +23,9 @@
 	font-size: 14px;
 	font-weight: 300;
 }
+body{
+	background-color: #ECDBDB;
+}
 img{
 	width: 100%;
 }
@@ -39,6 +42,12 @@ ul{
 video{
 	display: block;
 }
+@media (max-width: 991px) {
+	.container{
+		max-width: 100% !important;
+	}
+}
+
 /*topbar*/
 .topbar{
 	background-color: #282828;
@@ -46,6 +55,7 @@ video{
 }
 .topbar .container{
 	height: 55px;
+	position: relative;
 }
 .topbar *{
 	color: #fff;
@@ -89,4 +99,47 @@ button.btn-purchase{
 .wrapper-menu li svg{
 	width: 26px !important;
 	height: 26px;
+}
+
+.wrapper-button-menu{
+	display: none;
+	text-align: right;
+}
+
+@media (min-width: 992px) {
+	ul.menu-topbar{
+		display: flex !important;
+	}
+}
+@media (max-width: 991px) {
+	.wrapper-button-menu{
+		display: block;
+	}
+	ul.menu-topbar{
+		display: none;
+		background-color: #333;
+		position: absolute;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		z-index: 100;
+	}
+	li.menu-link{
+		border-bottom: 1px solid #fff;
+	}
+	ul.menu-topbar li:nth-last-child(1), ul.menu-topbar li:nth-last-child(2), ul.menu-topbar li:nth-last-child(3), ul.menu-topbar li:nth-last-child(4){
+		display: inline-block;
+	}
+	.wrapper-menu a.nav-link{
+		line-height: 40px;
+	}
+	.wrapper-menu a.nav-link:not(.last-child):after{
+		content: "";
+	}
+}
+
+@media (max-width: 768px) {
+	.header{
+		display: none;
+	}
 }

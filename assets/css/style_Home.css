@@ -1,10 +1,13 @@
 .section{
-	overflow: hidden;
 	position: relative;
+	max-width: 1440px;
+	margin: auto;
 }
 .container-fluid{
 	padding:0;
 }
+
+/*header*/
 .header{
 	position: absolute;
 	left: 50%;
@@ -84,25 +87,26 @@ div#collapseGames a{
 	line-height: 40px;
 	text-transform: initial;
 }
+/*end header*/
+
+/*wrapper-video*/
 .wrapper-video{
 	position: relative;
-
 }
 .wrapper-home video{
 	width: 100%;
 }
-.wrapper-captions{
+.wrapper-video .container{
 	position: absolute;
 	bottom: 70px;
 	display: flex;
 	width: 100%;
 	padding: 0 30px;
+	left: 50%;
+	transform: translateX(-50%);
 }
 .video-text{
 	flex-grow: 1;
-}
-.video-button{
-	/*right: 20px;*/
 }
 .video-text * {
 	color: #fff;
@@ -140,6 +144,45 @@ div#collapseGames a{
 	color: #fff;
 	text-decoration: underline;
 }
+@media (max-width: 900px) {
+	.wrapper-video .container{
+		bottom: 20px;
+	}
+	.video-text{
+		display: none;
+	}
+	.video-button{
+		margin: auto;
+	}
+}
+@media (max-width: 767px) {
+	.video-button{
+		margin-bottom: 0;
+	}
+	.video-button button{
+		display: block;
+		margin-top: 10px;
+	}
+	.video-button img{
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	.wrapper-video video{
+		height: 350px;
+		object-fit: cover;
+	}
+	.wrapper-video .container{
+		height: 100%;
+		bottom: 0;
+		position: initial;
+		transform: initial;
+		left: initial;
+	}
+}
+/*end wrapper-video*/
+
 .line{
 	height: 5px;
 	width: 100%;
@@ -152,11 +195,30 @@ div#collapseGames a{
 	padding-bottom: 30px;
 	overflow: hidden;
 }
+.wrapper h1{
+	text-transform: uppercase;
+	font-weight: 900;
+	font-family: 'RobotoBold';
+	font-size: 40px;
+	margin-bottom: 30px;
+}
+@media (max-width: 991px) and (min-width: 768px){
+	.wrapper h1{
+		font-size: 30px;
+	}
+}
+@media (max-width: 767px){
+	.wrapper h1{
+		font-size: 24px;
+	}
+}
+
+/*short-des*/
 .wrapper.short-des{
 	background-image: url('../img/bg.jpg');
 	height: 500px;
 }
-.wrapper .wrapper-text{
+.short-des .container{
 	position: absolute;
 	width: 50%;
 	top: 50%;
@@ -168,6 +230,10 @@ div#collapseGames a{
 	position: absolute;
 	bottom: 0;
 	right: 0;
+}
+.short-des .container img{
+	width: 300px;
+	margin-bottom: 20px;
 }
 .short-des * {
 	color: #fff;
@@ -185,65 +251,125 @@ div#collapseGames a{
 .short-des .video-button{
 	position: initial !important;
 }
+.short-des button{
+	border-color: #fff !important;
+}
+@media (max-width: 991px) {
+	.short-des .container{
+		left: 0;
+	}
+	.short-des .container img{
+		width: 200px;
+	}
+}
+@media (max-width: 575px) {
+	.short-des .container{
+		width: 100%;
+	}
+}
+@media (min-width: 576px) and (max-width: 767px) {
+	.short-des .container{
+		width: 70%;
+	}
+}
+/*end short-des*/
 
+/*owl-carousel*/
+.races h1{
+	color: #fff;
+}
+.races{
+	background-color: #353535;
+}
 .owl-carousel *{
 	transition: all 0.3s ease;
 }
 .owl-stage-outer{
-	overflow-y: visible !important;
-	padding: 70px 0;
+	overflow: visible !important;
 }
-.owl-item.active.center img{
-	transform: scale(1.5);
+.owl-stage{
+	padding: 100px 0;
+}
+.owl-item{
+	padding: 20px;
+}
+.owl-item:not(.center) {
+	filter: brightness(0.5);
+}
+.owl-item.active.center .box-img{
+	transform: scale(1.8);
 }
 .owl-item.active.center{
 	position: relative;
 	z-index: 100;
 }
 .owl-nav button{
-	background-color: #fff !important;
+	background-color: transparent !important;
+	width: 50px !important;
+    border-radius: 50% !important;
+    height: 50px !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 3px solid #fff !important;
 }
-/*slick-slider*/
-.img-game{
-	background-color: #383838;
+.owl-nav button svg{
+	font-size: 24px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
-.slider-game button{
+.owl-nav button path{
+	fill: #fff;
+}
+.owl-prev{
+	left: 0;
+}
+.owl-next{
+	right: 0;
+}
+.owl-item:not(.center) .item-caption{
+	display: none;
+}
+.owl-item.active.center .item-caption{
 	z-index: 100;
+	position: absolute;
+	color: #fff;
+	bottom: 0;
+	text-align: center;
+	font-size: 11px;
 }
-.slider-game .slick-current img{
-	transform: scale(1.5);
-	z-index: 100;
+@media (max-width: 991px) {
+	.owl-item.active.center .box-img{
+		transform: initial;
+	}
+	.owl-stage{
+		padding: 0;
+	}
+	.owl-item.active.center .item-caption{
+		position: initial;
+		font-size: 14px;
+		padding-top: 10px;
+	}
+	.owl-item{
+		padding: 0;
+	}
 }
-.slider-game .slick-slide {
-  padding: 70px 10px;
-  object-fit: cover;
-  /*height: 400px;*/
+@media (max-width: 767px) {
+	.owl-nav button{
+		width: 30px !important;
+		height: 30px !important;
+	}
 }
-.slider-game .slick-slide img{
-	transition: transform 1s;
-	height: 100%;
-}
-.slider-game .slick-current{
-	position: relative;
-	z-index: 100;
-}
-.slider-game .slick-slide:not(.slick-current){
-	position: relative;
-	z-index: 10;
-}
-.slider-game .slick-slide:not(.slick-current) img{
-  filter: brightness(50%);
-}
-/*end slick-slider*/
+/*end owl carousel*/
 
 /*video-game*/
 .video-game{
 	position: relative;
 	padding: 0;
 }
-.races h1{
-	color: #fff;
-}
+
 div.small-video{
 	position: absolute;
 	bottom: 20px;
@@ -254,20 +380,33 @@ div.small-video{
 }
 div.small-video video{
 	width: 300px;
-	padding: 0 10px;
+	padding: 0 5px;
+}
+@media (max-width: 899px) {
+	div.small-video{
+		position: initial;
+		flex-wrap: wrap;
+		bottom: initial;
+		left: initial;
+		transform: initial;
+	}
+	div.small-video video{
+		margin: auto;
+		margin-top: 10px;
+	}
+}
+@media (max-width: 599px) {
+	div.small-video video{
+		width: 100%;
+		padding: 0;
+	}
 }
 /*end video-game*/
 
-.wrapper h1{
-	text-transform: uppercase;
-	font-weight: 900;
-	font-family: 'RobotoBold';
-	font-size: 40px;
-}
 
+/*player-guides*/
 .player-guides h5{
 	font-size:16px;
-	padding-top: 25px;
 	padding-bottom: 20px;
 }
 .wrapper .card{
@@ -294,19 +433,26 @@ div.small-video video{
 .wrapper-btn-more{
 	text-align: center;
 }
+/*end player-guides*/
 
+/*blog*/
+.wrapper .row>div{
+	margin: auto;
+}
 .blog .card{
 	border: 0;
 }
 .blog .card-body{
 	height: 210px;
-	background-color: #e8e8e8;
+	background-color: #C6BABA;
 	padding: 15px 10px;
 }
 .blog .card-text{
 	text-transform: uppercase;
 }
+/*end player-guides*/
 
+/*related-games*/
 .wrapper.related-games{
 	background-image: url('../img/bg.jpg');
 }
@@ -316,3 +462,4 @@ div.small-video video{
 	color: #fff;
 	margin-bottom: 30px;
 }
+/*end related-games*/

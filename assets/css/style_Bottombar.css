@@ -5,16 +5,17 @@ footer{
 footer *{
 	color: #fff;
 }
-footer img{
+footer .logos>div{
 	height: 40px;
-	width: unset;
-	margin-right: 40px;
+	width: fit-content;
+	padding-right: 20px;
 }
-footer .container{
-	/*display: flex;*/
+footer .logos img{
+	height: 100%;
+	width: auto;
 }
-footer .container>div{
-	/*display: inline-block;*/
+footer .row > div{
+	padding: 0 15px;
 }
 footer svg path{
 	fill: #d7d7d7;
@@ -45,4 +46,31 @@ footer li{
 	margin: 0;
 	width: 200px;
 	height: auto;
+}
+.logos{
+	display: flex;
+}
+@media (max-width: 768px) {
+	.wrapper-media{
+		width: 100%;
+		text-align: center;
+	}
+	.logos{
+		order: 2;
+	}
+	footer .row>div{
+		margin: auto;
+	}
+	.img-left, .more-info{
+		text-align: center;
+	}
+}
+@media (max-width: 575px) {
+	.logos>div{
+		height: initial !important;
+	}
+	.logos img{
+		height: unset !important;
+		width: 100% !important;
+	}
 }
